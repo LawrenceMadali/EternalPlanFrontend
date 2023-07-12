@@ -9,7 +9,7 @@ import { User } from './user.model';
 })
 export class UsersService {
   form!: FormGroup;
-  readonly baseURL = 'http://localhost:3000/api/eternalplans/';
+  readonly baseURL = 'https://eternal-plans-app.onrender.com/api/eternalplans';
   users: User[] = [];
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
