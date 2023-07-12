@@ -1,0 +1,98 @@
+<mat-card class="w-full">
+    <mat-card-header>
+        <mat-card-title>
+            <h1 class="text-2xl font-medium">Customer</h1>
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="m-4">
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="service.form" class="grid grid-cols-2 gap-4">
+
+            <mat-form-field appearance="fill" class="col-span-2">
+                <mat-label>Fullname</mat-label>
+                <input matInput type="text" formControlName="fullname" placeholder="Ex. Jose Marie Chan">
+            </mat-form-field>
+            <!-- Address -->
+            <mat-form-field appearance="fill" class="col-span-2">
+                <mat-label>Address</mat-label>
+                <textarea matInput type="text" formControlName="address"></textarea>
+            </mat-form-field>
+            <!-- Birthday -->
+            <mat-form-field appearance="fill" class="col-span-2">
+                <mat-label>Choose your date of birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birthday">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <hr class="col-span-2">
+            <!-- Gender -->
+            <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option *ngFor="let item of gender" [value]="item.value">{{ item.viewValue }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- Civil Status -->
+            <mat-form-field appearance="fill">
+                <mat-label>Civil Status</mat-label>
+                <mat-select formControlName="civil_status">
+                    <mat-option *ngFor="let item of civil_status" [value]="item.value">{{ item.viewValue
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <hr class="col-span-2">
+            <!-- Contact number -->
+            <mat-form-field appearance="fill">
+                <mat-label>Contact number</mat-label>
+                <input matInput type="text" formControlName="contact_number">
+            </mat-form-field>
+            <!-- Email Address -->
+            <mat-form-field appearance="fill">
+                <mat-label>Email Address</mat-label>
+                <input matInput type="text" formControlName="email_address" required>
+            </mat-form-field>
+
+            <hr class="col-span-2">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Product</mat-label>
+                <mat-select formControlName="product" (selectionChange)="onProductChange()">
+                    <mat-option *ngFor="let product of products" [value]="product.value">
+                        {{ product.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" *ngIf="showPrice">
+                <mat-label>Price</mat-label>
+                <mat-select formControlName="price">
+                    <mat-option *ngFor="let price of selectedProductPrices" [value]="price">
+                        {{ price | currency }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="flex col-span-2 gap-4">
+                <button mat-raised-button type="submit" [disabled]="!service.form.valid" class="w-full col-span-2 p-2"
+                    color="primary">
+                    Submit
+                </button>
+                <button (click)="openDialog(service.form.value)" mat-raised-button type="button" [disabled]="!service.form.valid" class="w-full col-span-2 p-2"
+                    color="accent">
+                    Print
+                </button>
+            </div>
+            <button (click)="onReset()" mat-raised-button type="button" class="w-full col-span-2 p-2"
+                color="warn">
+                Clear form
+            </button>
+
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- table -->
+<!-- <app-customer-info></app-customer-info> -->

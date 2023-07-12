@@ -1,0 +1,51 @@
+<div class="overflow-auto">
+    <table class="min-w-full">
+        <thead class="border-b bg-slate-50 border-slate-200">
+            <tr>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">fullname</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">address</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">birthday</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">gender</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">civil status</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">contact number</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">email address</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">product</th>
+                <th class="px-3 py-2 text-sm font-medium text-left capitalize text-slate-900">price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let user of userService.users">
+                <tr (click)="getCurrentUser(user)"
+                    class="odd:bg-white even:bg-slate-50 hover:bg-gray-100 hover:cursor-pointer">
+                    <td class="px-3 py-2 text-sm font-medium whitespace-nowrap text-slate-900">
+                        {{user.fullname}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.address}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.birthday | date: 'shortDate'}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.gender}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.civil_status}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.contact_number}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.email_address}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.product}}
+                    </td>
+                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                        {{user.price | currency}}
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

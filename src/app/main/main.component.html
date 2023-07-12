@@ -1,0 +1,13 @@
+<section class="p-4 antialiased text-gray-900">
+
+    <mat-button-toggle-group aria-label="Font Style">
+        <mat-button-toggle value="customer" routerLink="customer">Customer</mat-button-toggle>
+        <mat-button-toggle value="admin" routerLink="admin">Admin</mat-button-toggle>
+        <mat-button-toggle value="staff" routerLink="staff">Staff</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div class="flex items-center justify-center py-12">
+        <router-outlet></router-outlet>
+    </div>
+    
+</section>

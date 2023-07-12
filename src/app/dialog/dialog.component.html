@@ -1,0 +1,21 @@
+<section #content>
+    <h1 mat-dialog-title>
+        <span class="text-3xl">Customer Data</span>
+    </h1>
+    <div mat-dialog-content>
+        <div class="p-6">
+            <div class="font-medium">Fullname: <span class="p-2 font-normal">{{data.user.fullname}}</span></div>
+            <div class="font-medium">Address: <span class="p-2 font-normal">{{data.user.address}}</span></div>
+            <div class="font-medium">Birthday: <span class="p-2 font-normal">{{data.user.birthday | date: 'shortDate'}}</span></div>
+            <div class="font-medium">Gender: <span class="p-2 font-normal">{{data.user.gender}}</span></div>
+            <div class="font-medium">Civil Status: <span class="p-2 font-normal">{{data.user.civil_status}}</span></div>
+            <div class="font-medium">Contact Number: <span class="p-2 font-normal">{{data.user.contact_number}}</span></div>
+            <div class="font-medium">Email Address: <span class="p-2 font-normal">{{data.user.email_address}}</span></div>
+            <div class="font-medium">Product: <span class="p-2 font-normal">{{data.user.product}}</span></div>
+            <div class="font-medium">Price: <span class="p-2 font-normal">{{data.user.price}}</span></div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-flat-button mat-dialog-close color="primary" (click)="generatePDF()">Download</button>
+    </div>
+</section>
