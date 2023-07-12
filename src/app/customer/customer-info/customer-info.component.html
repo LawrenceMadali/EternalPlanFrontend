@@ -17,31 +17,31 @@
             <ng-container *ngFor="let user of userService.users">
                 <tr (click)="getCurrentUser(user)"
                     class="odd:bg-white even:bg-slate-50 hover:bg-gray-100 hover:cursor-pointer">
-                    <td class="px-3 py-2 text-sm font-medium whitespace-nowrap text-slate-900">
+                    <td title="{{user.fullname}}" class="px-3 py-2 text-sm font-medium whitespace-nowrap text-slate-900">
                         {{user.fullname}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.address}}" class="px-3 py-2 text-sm truncate whitespace-nowrap text-slate-600">
                         {{user.address}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.birthday | date: 'shortDate'}}" class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
                         {{user.birthday | date: 'shortDate'}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.gender}}" class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
                         {{user.gender}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.civil_status}}" class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
                         {{user.civil_status}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.contact_number}}" class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
                         {{user.contact_number}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.email_address}}" class="px-3 py-2 text-sm truncate whitespace-nowrap text-slate-600">
                         {{user.email_address}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title="{{user.product}}" class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
                         {{user.product}}
                     </td>
-                    <td class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
+                    <td title=" {{user.price | currency}}" class="px-3 py-2 text-sm whitespace-nowrap text-slate-600">
                         {{user.price | currency}}
                     </td>
                 </tr>
