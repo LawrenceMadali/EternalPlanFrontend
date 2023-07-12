@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
 import { User } from './user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   form!: FormGroup;
-  readonly baseURL = 'https://eternal-plans-app.onrender.com/api/eternalplans';
   users: User[] = [];
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
@@ -32,12 +32,12 @@ export class UsersService {
   }
 
   postEternalPlans() {
-    return this.http.post(this.baseURL, this.form.value)
+    return this.http.post(environment.baseURL, this.form.value)
       .pipe(catchError(this.handleError))
   }
 
   getEternalPlans() {
-    return this.http.get(this.baseURL)
+    return this.http.get(environment.baseURL)
       .pipe(catchError(this.handleError))
       .subscribe(data => {
         this.users = data as User[]
@@ -45,7 +45,7 @@ export class UsersService {
   }
 
   putEternalPlans() {
-    return this.http.put(this.baseURL+this.form.get('_id')?.value, this.form.value)
+    return this.http.put(environment.baseURL+this.form.get('_id')?.value, this.form.value)
       .pipe(catchError(this.handleError))
   }
 
